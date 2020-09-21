@@ -1,0 +1,202 @@
+<div class="page-wrapper">
+<div class="content container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h4 class="page-title">My Profile</h4>
+    </div>
+
+    <div class="col-sm-4 text-right m-b-30">
+      <a routerLink="../profile/edit" class="btn btn-primary rounded"><i class="fa fa-plus"></i> Edit Profile</a>
+    </div>
+  </div>
+  <div class="card-box">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile-view">
+          <div class="profile-img-wrap">
+            <div class="profile-img">
+              <a href="javascript:"><img class="avatar" src="assets/img/user.jpg" alt=""></a>
+            </div>
+          </div>
+          <div class="profile-basic">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="profile-info-left">
+                  <h3 class="user-name m-t-0 m-b-0">{{user.fname}} {{user.lname}}</h3>
+                  <small class="text-muted">{{user.gender}}</small>
+                  <div class="staff-id">Employee ID : {{user.employeeID}}</div>
+                  <div *ngIf="status" class="staff-msg" (click)="process()"><a class="btn btn-primary">Submit to HR for Processing</a></div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <ul class="personal-info">
+                  <li>
+                    <span class="title">Phone:</span>
+                    <span class="text"><a href="javascript:">{{user.phone}}</a></span>
+                  </li>
+                  <li>
+                    <span class="title">Email:</span>
+                    <span class="text"><a href="javascript:">{{user.email }}</a></span>
+                  </li>
+                  <li>
+                    <span class="title">Birthday:</span>
+                    <span class="text">{{user.dob | date: 'dd/MM/yyyy'}}</span>
+                  </li>
+                  <li>
+                    <span class="title">Address:</span>
+                    <span class="text">{{user.address.street}} {{user.address.city}} {{user.address.parish}}</span>
+                  </li>
+                  <li>
+                    <span class="title">Gender:</span>
+                    <span class="text">{{user.gender}}</span>
+                  </li>
+                  <li>
+                    <span class="title">TRN:</span>
+                    <span class="text">{{user.trn}}</span>
+                  </li>
+                  <li>
+                    <span class="title">NIS:</span>
+                    <span class="text">{{user.nis}} </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-box m-b-0">
+        <h3 class="card-title">Bank Details</h3>
+
+        <ul class="personal-info">
+          <li>
+            <span class="title">Account # :</span>
+            <span class="text">{{user.bank.accountNumber}}</span>
+          </li>
+          <li>
+            <span class="title">Bank Name :</span>
+            <span class="text">{{user.bank.bankName}}</span>
+          </li>
+          <li>
+            <span class="title">Branch :</span>
+            <span class="text">{{user.bank.branch}}</span>
+          </li>
+          <li>
+            <span class="title">type :</span>
+            <span class="text">{{user.bank.accountType}}</span>
+          </li>
+        </ul>
+        <!-- <div class="skills">
+          <span>IOS</span>
+          <span>Android</span>
+          <span>Html</span>
+          <span>CSS</span>
+          <span>Codignitor</span>
+          <span>Php</span>
+          <span>Javascript</span>
+          <span>Wordpress</span>
+          <span>Jquery</span>
+        </div> -->
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-box">
+        <h3 class="card-title">Emergency Contact</h3>
+        <div class="experience-box">
+          <ul class="personal-info">
+            <li>
+              <span class="title">Name:</span>
+              <span class="text">
+                {{user.emergencyContact[0].name}},
+              </span>
+            </li>
+            <li>
+              <span class="title">Relationship:</span>
+              <span class="text">
+                {{user.emergencyContact[0].relationship}},
+              </span>
+            </li>
+            <li>
+              <span class="title">Contact:</span>
+              <span class="text">
+                {{user.emergencyContact[0].contact}},
+              </span>
+            </li>
+            <li>
+              <span class="title">Address:</span>
+              <span class="text">
+                {{user.emergencyContact[0].address.street}},
+                {{user.emergencyContact[0].address.city}},
+                {{user.emergencyContact[0].address.parish}},
+                {{user.emergencyContact[0].address.country}}
+              </span>
+            </li>
+
+          </ul>
+          <!-- <ul class="experience-list">
+            <li>
+              <div class="experience-user">
+                <div class="before-circle"></div>
+              </div>
+              <div class="experience-content">
+                <div class="timeline-content">
+                  <a href="javascript:" class="name">International College of Arts and Science (UG)</a>
+                  <div>Bsc Computer Science</div>
+                  <span class="time">2000 - 2003</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="experience-user">
+                <div class="before-circle"></div>
+              </div>
+              <div class="experience-content">
+                <div class="timeline-content">
+                  <a href="javascript:" class="name">International College of Arts and Science (PG)</a>
+                  <div>Msc Computer Science</div>
+                  <span class="time">2000 - 2003</span>
+                </div>
+              </div>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="card-box m-b-0">
+        <h3 class="card-title">Uploads</h3>
+        <div class="experience-box">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Link</th>
+                <th scope="col">Document Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let image of doc">
+                <th scope="row"><a href="{{image.url}}" >download</a></th>
+                <td >{{image.type}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <div class="row" >
+
+            <div style="display: flex;" >
+              <div style="width: 250px; padding: 0 54px;" *ngFor="let image of images">
+                <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" style="text-align: center;">{{image.type}}</p>
+                <img *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
