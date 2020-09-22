@@ -18,7 +18,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit() {
-    this.api.loginAd(this.data.email, this.data.password).subscribe(
+    this.api.emlogin(this.data.email, this.data.password).subscribe(
       next => {
         console.log(next);
         if (next.token != null){
