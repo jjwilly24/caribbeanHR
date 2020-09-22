@@ -13,16 +13,6 @@ server = "https://api.caribbeanhrsolutions.com/";
 constructor(private http: HttpClient) { }
 
 
-loginAd(email, password) {
-  return this.http.get(this.server+"auth/loginAdmin/"+email+"/"+password).pipe(
-    map((response: any) => {
-      if (response) {
-        return response;
-      }
-    })
-  )
-}
-
 emlogin(email, password) {
   return this.http.get(this.server+"auth/loginEmployee/"+email+"/"+password).pipe(
     map((response: any) => {
