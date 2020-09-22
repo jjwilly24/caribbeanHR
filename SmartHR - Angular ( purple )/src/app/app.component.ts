@@ -90,10 +90,10 @@ export class AppComponent implements OnInit {
     });
 
 
-    var height = $(window).height();	
+    var height = $(window).height();
     $(".page-wrapper").css("min-height", height);
-  
-    
+
+
     $(window).resize(function(){
       if($('.page-wrapper').length > 0 ){
         var height = $(window).height();
