@@ -211,7 +211,7 @@ const routes: Routes = [
   { path: 'pages/register', component: RegisterPageComponent },
   { path: 'pages/forgot-password', component: ForgetPageComponent },
   { path: 'pages/employee', component: EmloginComponent},
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuardService] },
   { path: 'profile/edit', component: ProfileEditComponent },
   { path: 'career/jobs', component: JobsListComponent },
   { path: 'career/job-details', component: JobsDetailsComponent },

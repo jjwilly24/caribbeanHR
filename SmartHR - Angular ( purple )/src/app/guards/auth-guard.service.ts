@@ -11,7 +11,7 @@ export class AuthGuardService {
 
   canActivate(): boolean {
     if(!this.auth.isAuthenticated()){
-      location.href = "/pages/login"
+      location.href = "/pages/employee"
       return false;
     }
     return true;
