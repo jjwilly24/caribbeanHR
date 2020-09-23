@@ -6,3 +6,29 @@
   margin-right: 30px;
   width: 30%;
 }
+
+.blacktop {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 60px;
+  text-align: center;
+  /* margin-left: 5rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.blacktop > button {
+  margin-left: 1rem;
+
+}
+.blacktop > button > p {
+  /* color: #ffffff; */
+}
+.blacktop > img {
+
+}

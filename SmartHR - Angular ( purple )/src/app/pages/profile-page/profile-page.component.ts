@@ -15,6 +15,8 @@ export class ProfilePageComponent implements OnInit {
   imageLoader: Array<string> = [];
 
   status: boolean = true;
+  imgZoom: boolean = false;
+  imgZoomUrl: string = '';
 
   constructor(private api: ApiService) { }
 
@@ -49,6 +51,20 @@ export class ProfilePageComponent implements OnInit {
       }
       this.user = next;
     });
+
+  }
+
+  onImageView(event) {
+    if (!event) {
+      this.imgZoom = !this.imgZoom;
+      this.imgZoomUrl = '';
+    } else {
+      this.imgZoom = !this.imgZoom;
+      this.imgZoomUrl = event.target.currentSrc;
+    }
+  }
+  rotateImg(args) {
+    console.log('args',args);
 
   }
 

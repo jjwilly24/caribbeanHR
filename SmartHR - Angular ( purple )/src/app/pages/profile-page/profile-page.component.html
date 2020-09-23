@@ -2,7 +2,7 @@
 <div class="content container-fluid">
   <div class="row">
     <div class="col-sm-8">
-      <h4 class="page-title">Mi Profile</h4>
+      <h4 class="page-title">My Profile</h4>
     </div>
 
     <div class="col-sm-4 text-right m-b-30">
@@ -188,13 +188,16 @@
             <div style="display: flex;" >
               <div style="width: 250px; padding: 0 54px;" *ngFor="let image of images">
                 <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" style="text-align: center;">{{image.type}}</p>
-                <img *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
-
+                <img (click)="onImageView($event)" *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
+                <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" (click)="rotateImg(image)" style="text-align: center;">Rotate</p>
               </div>
             </div>
 
           </div>
         </div>
+      </div>
+      <div class="blacktop" *ngIf="imgZoom == true">
+        <img (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
       </div>
     </div>
   </div>
