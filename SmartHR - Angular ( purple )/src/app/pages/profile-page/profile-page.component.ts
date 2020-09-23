@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Client } from 'src/app/Models/Client';
 
@@ -17,8 +17,10 @@ export class ProfilePageComponent implements OnInit {
   status: boolean = true;
   imgZoom: boolean = false;
   imgZoomUrl: string = '';
+  imgRotation: number = 0;
 
-  constructor(private api: ApiService) { }
+
+  constructor(private api: ApiService, private _elementRef : ElementRef) { }
 
   ngOnInit() {
 
@@ -64,7 +66,12 @@ export class ProfilePageComponent implements OnInit {
     }
   }
   rotateImg(args) {
-    console.log('args',args);
+    if (args == 'r') {
+      this.imgRotation += 90;
+    } else {
+      this.imgRotation -= 90;
+    }
+    this._elementRef.nativeElement.querySelector(`#zoomImg`).style.transform = `rotate(${this.imgRotation}deg)`
 
   }
 

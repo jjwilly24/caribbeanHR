@@ -189,7 +189,6 @@
               <div style="width: 250px; padding: 0 54px;" *ngFor="let image of images">
                 <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" style="text-align: center;">{{image.type}}</p>
                 <img (click)="onImageView($event)" *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
-                <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" (click)="rotateImg(image)" style="text-align: center;">Rotate</p>
               </div>
             </div>
 
@@ -197,7 +196,11 @@
         </div>
       </div>
       <div class="blacktop" *ngIf="imgZoom == true">
-        <img (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
+        <img id="zoomImg" (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
+        <div class="imgRotateControl">
+          <button type="button" (click)="rotateImg('l')">Rotate Left</button>
+          <button type="button" (click)="rotateImg('r')">Rotate Right</button>
+        </div>
       </div>
     </div>
   </div>
