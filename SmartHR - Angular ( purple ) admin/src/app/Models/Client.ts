@@ -31,6 +31,8 @@ export interface Client {
 
   clientID: number;
 
+  companyID: number;
+
   password: string;
 
   status: string;

@@ -134,7 +134,8 @@ export class SidebarComponent implements OnInit {
               }
         }
         else if(this.url == 'dashboard'){
-          this.clientView  = true;
+          this.clientView  = false;
+          this.employeeView = true;
           this.chatView  = false;
           this.mailView  = false;
           this.settingsView = false;
@@ -145,7 +146,7 @@ export class SidebarComponent implements OnInit {
         }
         else
         {
-          this.clientView  = false;
+          this.employeeView = true;
           this.chatView  = false;
           this.mailView  = false;
           this.settingsView = false;

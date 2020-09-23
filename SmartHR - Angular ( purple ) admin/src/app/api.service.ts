@@ -204,6 +204,7 @@ getFiles() {
   );
 }
 
+
 getFilesAdmin(id) {
 
   let token = localStorage.getItem('token');
@@ -245,6 +246,47 @@ updateEmployee(employee: any) {
   );
 }
 
+approve(id){
+
+  let token = localStorage.getItem('token');
+  let user = localStorage.getItem('user');
+
+  let uData = JSON.parse(user);
+
+  const httpOptionsSecure = {
+    headers: new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+  };
+
+  return this.http.get(this.server+`api/admin/approve/${uData.id}/${id}`, httpOptionsSecure).pipe(
+    map((response: any) => {
+      if (response) {
+        return response;
+      }
+    })
+  );
+}
+
+MoveTo(id, direction, client) {
+  let token = localStorage.getItem('token');
+
+  const httpOptionsSecure = {
+    headers: new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+  };
+
+  return this.http.get(this.server+`api/admin/move/${id}/${direction}/${client}`, httpOptionsSecure).pipe(
+    map((response: any) => {
+      if (response) {
+        return response;
+      }
+    })
+  );
+
+
+}
 
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Client } from 'src/app/Models/Client';
 
@@ -13,42 +14,60 @@ export class ProfilePageComponent implements OnInit {
   images: Array<any> = [];
   doc: Array<any> = [];
   imageLoader: Array<string> = [];
+  approved: boolean = false;
 
   status: boolean = true;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if(params.id){
+        this.api.getEmployeesByID(params.id).subscribe(next => {
 
-    this.api.getFiles().subscribe(next => {
+          if(next.status == 'submitted' ){
+            this.approved = false;
+          }else if(next.status == 'approved') {
+            this.approved = true;
+          }else{
+            this.approved = true;
+          }
+          this.user = next;
+        });
 
-      next.forEach(im => {
-        if (im.docType != 'docx' && im.docType != 'doc') {
-          this.images.push(im);
-        }
-      });
+        this.api.getFilesAdmin(params.id).subscribe(next => {
 
-      next.forEach(im => {
-        if (im.docType == 'docx' || im.docType == 'doc') {
-          this.doc.push(im);
+          next.forEach(im => {
+            if (im.docType != 'docx' && im.docType != 'doc') {
+              this.images.push(im);
+            }
+          });
 
-        }
-      });
+          next.forEach(im => {
+            if (im.docType == 'docx' || im.docType == 'doc') {
+              this.doc.push(im);
 
+            }
+          });
+
+        });
+      }
     });
+
+
 
     let u = localStorage.getItem('user');
 
     let user = JSON.parse(u);
 
-    this.api.getEmployeesByID(user.id).subscribe(next => {
-      console.log(next);
+    // this.api.getEmployeesByID(user.id).subscribe(next => {
+    //   console.log(next);
 
-      if(next.status == 'submitted' || next.status == 'approved'){
-        this.status = false;
-      }
-      this.user = next;
-    });
+    //   if(next.status == 'submitted' || next.status == 'approved'){
+    //     this.status = false;
+    //   }
+    //   this.user = next;
+    // });
 
   }
 
@@ -56,6 +75,43 @@ export class ProfilePageComponent implements OnInit {
     this.user.status = 'submitted';
     this.status = false;
     this.api.updateEmployee(this.user).subscribe(next => {
+
+    });
+  }
+
+  approve() {
+    this.api.approve(this.user.id).subscribe(next => {
+      console.log(next);
+      this.approved = true;
+    });
+  }
+
+  move(direction) {
+    console.log(this.user);
+    this.api.MoveTo(this.user.id, direction, this.user.companyID).subscribe(next => {
+      this.user = next;
+
+
+      console.log(next);
+      this.api.getFilesAdmin(this.user.id).subscribe(next => {
+
+        this.images = [];
+        this.doc = [];
+
+        next.forEach(im => {
+          if (im.docType != 'docx' && im.docType != 'doc') {
+            this.images.push(im);
+          }
+        });
+
+        next.forEach(im => {
+          if (im.docType == 'docx' || im.docType == 'doc') {
+            this.doc.push(im);
+
+          }
+        });
+
+      });
 
     });
   }

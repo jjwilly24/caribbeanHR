@@ -6,7 +6,10 @@
     </div>
 
     <div class="col-sm-4 text-right m-b-30">
-      <a routerLink="../profile/edit" class="btn btn-primary rounded"><i class="fa fa-plus"></i> Edit Profile</a>
+      <a class="btn btn-primary rounded" style="margin-right: 10px;" (click)="move('previous')"> Previous</a>
+      <a class="btn btn-primary rounded" style="margin-right: 10px;" (click)="move('next')"> Next</a>
+      <a class="btn btn-primary rounded" *ngIf="!approved" style="margin-right: 10px;" (click)="approve()"> Approve</a>
+
     </div>
   </div>
   <div class="card-box">
@@ -44,7 +47,7 @@
                   </li>
                   <li>
                     <span class="title">Address:</span>
-                    <span class="text">{{user.address.street}} {{user.address.city}} {{user.address.parish}}</span>
+                    <span class="text">{{user.address.street}}, {{user.address.city}}, {{user.address.parish}}</span>
                   </li>
                   <li>
                     <span class="title">Gender:</span>
@@ -106,7 +109,7 @@
       <div class="card-box">
         <h3 class="card-title">Emergency Contact</h3>
         <div class="experience-box">
-          <ul class="personal-info">
+          <ul class="personal-info" *ngIf="user.emergencyContact.length != 0">
             <li>
               <span class="title">Name:</span>
               <span class="text">
