@@ -50,7 +50,7 @@ export class ClientProfileDetailsComponent implements OnInit {
 
         this.clientID = Number(params.id);
 
-        this.api.getClient(params.id).subscribe(
+        this.api.getClient(this.clientID).subscribe(
           next => {
             this.viewP = next;
           }
@@ -80,7 +80,7 @@ export class ClientProfileDetailsComponent implements OnInit {
         // }
       }
       else{
-        this.router.navigate(['clients/profile/details']);
+        //this.router.navigate(['clients/profile/details']);
       }
    });
   }
@@ -92,8 +92,9 @@ export class ClientProfileDetailsComponent implements OnInit {
   viewEmployee(id){
     console.log(id);
     console.log('viewEmployee');
+    console.log('viewEmployee');
     this.api.getEmployeesByID(id).subscribe(next => {
-      this.router.navigate(['profile']);
+      this.router.navigate(['profile'], { queryParams: { 'id': id }});
       console.log(next);
     });
   };

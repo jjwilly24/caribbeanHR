@@ -176,6 +176,7 @@ export class ClientComponent implements OnInit {
 
   viewProfile(item)
   {
+
     this.router.navigate(['clients/profile/details'], { queryParams: { 'id': item.clientID } });
   }
 
