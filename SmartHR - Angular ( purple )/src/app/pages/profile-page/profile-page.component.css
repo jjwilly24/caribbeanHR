@@ -26,14 +26,8 @@
 .imgRotateControl {
   display: flex;
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem;
 }
 .imgRotateControl > button {
   margin: 0 3rem;
-}
-.blacktop > button > p {
-  /* color: #ffffff; */
-}
-.blacktop > img {
-
 }

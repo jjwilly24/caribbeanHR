@@ -345,21 +345,24 @@
       <div style="display: flex;" >
         <div style="width: 250px; padding: 0 54px;" *ngFor="let image of images">
           <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" style="text-align: center;">{{image.type}}</p>
-          <img *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
+          <img (click)="onImageView($event)" *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
 
         </div>
       </div>
 
     </div>
-
-
-
-
   </div>
-
 
 </form>
 </div>
+</div>
+
+<div class="blacktop" *ngIf="imgZoom == true">
+  <img id="zoomImg" (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
+  <div class="imgRotateControl">
+    <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('l')">Rotate Left</button>
+    <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('r')">Rotate Right</button>
+  </div>
 </div>
 
 <div id="upload" class="modal custom-modal fade" role="dialog">

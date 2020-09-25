@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Address } from 'src/app/Models/Address';
 import { Bank } from 'src/app/Models/Bank';
@@ -47,7 +47,11 @@ export class ProfileEditComponent implements OnInit {
   doc: Array<any> = [];
   imageLoader: Array<string> = [];
 
-  constructor(private api: ApiService, private router: Router, public datepipe: DatePipe) {
+  imgZoom: boolean = false;
+  imgZoomUrl: string = '';
+  imgRotation: number = 0;
+
+  constructor(private api: ApiService, private router: Router, public datepipe: DatePipe, private _elementRef : ElementRef) {
 
   }
 
@@ -180,11 +184,23 @@ updateProfile() {
 
 }
 
+onImageView(event) {
+  if (!event) {
+    this.imgZoom = !this.imgZoom;
+    this.imgZoomUrl = '';
+  } else {
+    this.imgZoom = !this.imgZoom;
+    this.imgZoomUrl = event.target.currentSrc;
+  }
+}
+rotateImg(args) {
+  if (args == 'r') {
+    this.imgRotation += 90;
+  } else {
+    this.imgRotation -= 90;
+  }
+  this._elementRef.nativeElement.querySelector(`#zoomImg`).style.transform = `rotate(${this.imgRotation}deg)`
 
-rotateImage(direction) {
-  this.rotationAmount += direction == 'left' ? -45 : 45;
-
-  $('.image').style.transform = `rotate(${this.rotationAmount}deg)`;
 }
 
 }

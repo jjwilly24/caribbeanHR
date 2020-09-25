@@ -198,8 +198,8 @@
       <div class="blacktop" *ngIf="imgZoom == true">
         <img id="zoomImg" (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
         <div class="imgRotateControl">
-          <button type="button" (click)="rotateImg('l')">Rotate Left</button>
-          <button type="button" (click)="rotateImg('r')">Rotate Right</button>
+          <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('l')">Rotate Left</button>
+          <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('r')">Rotate Right</button>
         </div>
       </div>
     </div>
