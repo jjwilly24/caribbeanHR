@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Client } from 'src/app/Models/Client';
@@ -18,7 +18,11 @@ export class ProfilePageComponent implements OnInit {
 
   status: boolean = true;
 
-  constructor(private api: ApiService,private route:ActivatedRoute) { }
+  imgZoom: boolean = false;
+  imgZoomUrl: string = '';
+  imgRotation: number = 0;
+
+  constructor(private api: ApiService,private route:ActivatedRoute, private _elementRef : ElementRef) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -68,6 +72,25 @@ export class ProfilePageComponent implements OnInit {
     //   }
     //   this.user = next;
     // });
+
+  }
+
+  onImageView(event) {
+    if (!event) {
+      this.imgZoom = !this.imgZoom;
+      this.imgZoomUrl = '';
+    } else {
+      this.imgZoom = !this.imgZoom;
+      this.imgZoomUrl = event.target.currentSrc;
+    }
+  }
+  rotateImg(args) {
+    if (args == 'r') {
+      this.imgRotation += 90;
+    } else {
+      this.imgRotation -= 90;
+    }
+    this._elementRef.nativeElement.querySelector(`#zoomImg`).style.transform = `rotate(${this.imgRotation}deg)`
 
   }
 
