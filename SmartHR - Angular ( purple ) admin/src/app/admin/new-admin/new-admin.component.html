@@ -315,8 +315,204 @@
 <div *ngIf="complete == true" class="card-box">
   <div class="row">
     <div class="col-md-12">
-      <p>profile</p>
       <p>{{newAdmin.fname}}</p>
+
+      <div class="card-box">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="profile-view">
+              <div class="profile-img-wrap">
+                <div class="profile-img">
+                  <a href="javascript:"><img class="avatar" src="assets/img/user.jpg" alt=""></a>
+                </div>
+              </div>
+              <div class="profile-basic">
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="profile-info-left">
+                      <h3 class="user-name m-t-0 m-b-0">{{newAdmin.fname}} {{newAdmin.lname}}</h3>
+                      <small class="text-muted">{{newAdmin.gender}}</small>
+
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <ul class="personal-info">
+                      <li>
+                        <span class="title">Phone:</span>
+                        <span class="text"><a href="javascript:">{{newAdmin.phone}}</a></span>
+                      </li>
+                      <li>
+                        <span class="title">Email:</span>
+                        <span class="text"><a href="javascript:">{{newAdmin.email }}</a></span>
+                      </li>
+                      <li>
+                        <span class="title">Birthday:</span>
+                        <span class="text">{{newAdmin.dob | date: 'dd/MM/yyyy'}}</span>
+                      </li>
+                      <li>
+                        <span class="title">Address:</span>
+                        <span class="text">{{newAdmin.address.street}}, {{newAdmin.address.city}}, {{newAdmin.address.parish}}</span>
+                      </li>
+                      <li>
+                        <span class="title">Gender:</span>
+                        <span class="text">{{newAdmin.gender}}</span>
+                      </li>
+                      <li>
+                        <span class="title">TRN:</span>
+                        <span class="text">{{newAdmin.trn}}</span>
+                      </li>
+                      <li>
+                        <span class="title">NIS:</span>
+                        <span class="text">{{newAdmin.nis}} </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card-box m-b-0">
+            <h3 class="card-title">Bank Details</h3>
+
+            <ul class="personal-info">
+              <li>
+                <span class="title">Account # :</span>
+                <span class="text">{{newAdmin.bank.accountNumber}}</span>
+              </li>
+              <li>
+                <span class="title">Bank Name :</span>
+                <span class="text">{{newAdmin.bank.bankName}}</span>
+              </li>
+              <li>
+                <span class="title">Branch :</span>
+                <span class="text">{{newAdmin.bank.branch}}</span>
+              </li>
+              <li>
+                <span class="title">type :</span>
+                <span class="text">{{newAdmin.bank.accountType}}</span>
+              </li>
+            </ul>
+            <!-- <div class="skills">
+              <span>IOS</span>
+              <span>Android</span>
+              <span>Html</span>
+              <span>CSS</span>
+              <span>Codignitor</span>
+              <span>Php</span>
+              <span>Javascript</span>
+              <span>Wordpress</span>
+              <span>Jquery</span>
+            </div> -->
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-box">
+            <h3 class="card-title">Emergency Contact</h3>
+            <div class="experience-box">
+              <ul class="personal-info" *ngIf="newAdmin.emergencyContact.length != 0">
+                <li>
+                  <span class="title">Name:</span>
+                  <span class="text">
+                    {{newAdmin.emergencyContact[0].name}},
+                  </span>
+                </li>
+                <li>
+                  <span class="title">Relationship:</span>
+                  <span class="text">
+                    {{newAdmin.emergencyContact[0].relationship}},
+                  </span>
+                </li>
+                <li>
+                  <span class="title">Contact:</span>
+                  <span class="text">
+                    {{newAdmin.emergencyContact[0].contact}},
+                  </span>
+                </li>
+                <li>
+                  <span class="title">Address:</span>
+                  <span class="text">
+                    {{newAdmin.emergencyContact[0].address.street}},
+                    {{newAdmin.emergencyContact[0].address.city}},
+                    {{newAdmin.emergencyContact[0].address.parish}},
+                    {{newAdmin.emergencyContact[0].address.country}}
+                  </span>
+                </li>
+
+              </ul>
+              <!-- <ul class="experience-list">
+                <li>
+                  <div class="experience-user">
+                    <div class="before-circle"></div>
+                  </div>
+                  <div class="experience-content">
+                    <div class="timeline-content">
+                      <a href="javascript:" class="name">International College of Arts and Science (UG)</a>
+                      <div>Bsc Computer Science</div>
+                      <span class="time">2000 - 2003</span>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="experience-user">
+                    <div class="before-circle"></div>
+                  </div>
+                  <div class="experience-content">
+                    <div class="timeline-content">
+                      <a href="javascript:" class="name">International College of Arts and Science (PG)</a>
+                      <div>Msc Computer Science</div>
+                      <span class="time">2000 - 2003</span>
+                    </div>
+                  </div>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+          <div class="card-box m-b-0">
+            <h3 class="card-title">Uploads</h3>
+            <div class="experience-box">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Link</th>
+                    <th scope="col">Document Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let image of doc">
+                    <th scope="row"><a href="{{image.url}}" >download</a></th>
+                    <td >{{image.type}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <div class="row" >
+
+                <div style="display: flex;" >
+                  <div style="width: 250px; padding: 0 54px;" *ngFor="let image of images">
+                    <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" style="text-align: center;">{{image.type}}</p>
+                    <img (click)="onImageView($event)" *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="blacktop" *ngIf="imgZoom == true">
+            <img id="zoomImg" (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
+            <div class="imgRotateControl">
+              <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('l')">Rotate Left</button>
+              <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('r')">Rotate Right</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <button type="button" class="btn btn-primary" (click)="close()" >Close</button>
     </div>
