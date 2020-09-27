@@ -1,0 +1,346 @@
+<div class="page-wrapper">
+    <div class="content container-fluid">
+<div class="row">
+<div class="col-sm-8">
+  <h4 *ngIf="complete != true" class="page-title">Add New Admin</h4>
+  <h4 *ngIf="complete == true" class="page-title">New Admin Profile</h4>
+</div>
+</div>
+<form *ngIf="complete != true" #addForm="ngForm" (ngSubmit)="addNewAdmin(addForm)" novalidate>
+  <div class="card-box">
+    <h3 class="card-title">Basic Information</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="profile-img-wrap">
+          <img class="inline-block" src="assets/img/user.jpg" alt="user">
+          <div class="fileupload btn btn-default">
+            <span class="btn-text">edit</span>
+            <input class="upload" type="file">
+          </div>
+        </div>
+        <div class="profile-basic">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="control-label">First Name</label>
+              <div class="form-group form-focus">
+                <input type="text" name="fname" [(ngModel)]="em.fname" class="form-control floating" />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="control-label">Last Name</label>
+              <div class="form-group form-focus">
+                <input type="text" name="lname" [(ngModel)]="em.lname" class="form-control floating" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="control-label">TRN</label>
+                <div class="form-group form-focus">
+                  <input type="text" name="trn" [(ngModel)]="em.trn" class="form-control floating" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="control-label">NIS</label>
+                <div class="form-group form-focus">
+                  <input type="text" name="nis" [(ngModel)]="em.nis" class="form-control floating" />
+                </div>
+              </div>
+            <div class="col-md-6">
+              <label class="control-label">Birth Date</label>
+              <div class="form-group form-focus">
+
+                <div class="cal-icon"><input name="dob" [(ngModel)]="date" class="form-control floating datetimepicker" type="text"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="control-label">Gendar</label>
+              <div class="form-group form-focus select-focus">
+
+                <select class="select form-control floating" name="gender" [(ngModel)]="em.gender">
+                  <option value="">Select Gendar</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="card-box">
+    <h3 class="card-title">Contact Informations</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <label class="control-label">Address</label>
+        <div class="form-group form-focus">
+
+          <input [(ngModel)]="address.street" name="street" type="text" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">City</label>
+        <div class="form-group form-focus">
+
+          <input [(ngModel)]="address.city" name="city" type="text" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Parish</label>
+        <div class="form-group form-focus">
+
+          <select class="select form-control floating" name="parish" [(ngModel)]="address.parish">
+            <option value="">Select Type</option>
+            <option value="Hanover">Hanover</option>
+            <option value="Saint Elizabeth">Saint Elizabeth</option>
+            <option value="Saint James">Saint James</option>
+            <option value="Trelawny">Trelawny</option>
+            <option value="Westmoreland">Westmoreland</option>
+            <option value="Clarendon">Clarendon</option>
+            <option value="Manchester">Manchester</option>
+            <option value="Saint Ann">Saint Ann</option>
+            <option value="Saint Catherine">Saint Catherine</option>
+            <option value="Saint Mary">Saint Mary</option>
+            <option value="Kingston">Kingston</option>
+            <option value="Portland">Portland</option>
+            <option value="Saint Andrew">Saint Andrew</option>
+            <option value="Saint Thomas">Saint Thomas</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Country</label>
+        <div class="form-group form-focus">
+
+          <input type="text" [(ngModel)]="address.country" name="country" class="form-control floating" />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="control-label">Gendar</label>
+        <div class="form-group form-focus select-focus">
+
+          <select class="select form-control floating" [(ngModel)]="em.maritalStatus" name="maritalStatus" name="marital">
+            <option value="">Select Status</option>
+            <option value="married">Married</option>
+            <option value="single">Single</option>
+            <option value="widowed">Widowed</option>
+            <option value="divorced">Divorced</option>
+            <option value="separated">Separated</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <label class="control-label">Phone Number</label>
+        <div class="form-group form-focus">
+
+          <input type="text" [(ngModel)]="em.phone" name="phone" class="form-control floating" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-box">
+    <h3 class="card-title">Bank Information</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="control-label">Bank Name</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="bank" [(ngModel)]="bank.bankName" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Account Type</label>
+        <div class="form-group form-focus select-focus">
+
+          <select class="select form-control floating" name="accountNumber" [(ngModel)]="bank.accountType">
+            <option value="">Select Type</option>
+            <option value="savings">Savings</option>
+            <option value="checking">Checking</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Account Number</label>
+        <div class="form-group form-focus">
+
+          <input type="number" name="Accountnumber" [(ngModel)]="bank.accountNumber" class="form-control floating datetimepicker" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Branch</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="branch" [(ngModel)]="bank.branch"  class="form-control floating datetimepicker" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Comment</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="account" [(ngModel)]="bank.comments" class="form-control floating" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-box">
+    <h3 class="card-title">Emergency Contact</h3>
+    <div class="row">
+
+      <div class="col-md-6">
+        <label class="control-label">Full Name</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="name" [(ngModel)]="econtact1.name" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Contact Number</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="econtactnumber" [(ngModel)]="econtact1.contact" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Relationship</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="econtactnumber" [(ngModel)]="econtact1.relationship" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Address</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="econtact1Ad" [(ngModel)]="eaddress.street" class="form-control floating datetimepicker" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">City</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="eaddresscity" [(ngModel)]="eaddress.city"  class="form-control floating datetimepicker" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Parish</label>
+        <div class="form-group form-focus select-focus">
+
+          <select class="select form-control floating" name="ecparish" [(ngModel)]="eaddress.parish">
+            <option value="">Select Type</option>
+            <option value="Hanover">Hanover</option>
+            <option value="Saint Elizabeth">Saint Elizabeth</option>
+            <option value="Saint James">Saint James</option>
+            <option value="Trelawny">Trelawny</option>
+            <option value="Westmoreland">Westmoreland</option>
+            <option value="Clarendon">Clarendon</option>
+            <option value="Manchester">Manchester</option>
+            <option value="Saint Ann">Saint Ann</option>
+            <option value="Saint Catherine">Saint Catherine</option>
+            <option value="Saint Mary">Saint Mary</option>
+            <option value="Kingston">Kingston</option>
+            <option value="Portland">Portland</option>
+            <option value="Saint Andrew">Saint Andrew</option>
+            <option value="Saint Thomas">Saint Thomas</option>
+
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+        <label class="control-label">Country</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="emcountry" [(ngModel)]="eaddress.country" class="form-control floating" />
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-6">
+        <label class="control-label">Bank Name</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="bank" [(ngModel)]="bank.bankName" class="form-control floating" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Account Type</label>
+        <div class="form-group form-focus select-focus">
+
+          <select class="select form-control floating" name="accountNumber" [(ngModel)]="bank.accountType">
+            <option value="">Select Type</option>
+            <option value="savings">Savings</option>
+            <option value="checking">Checking</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Account Number</label>
+        <div class="form-group form-focus">
+
+          <input type="number" name="Accountnumber" [(ngModel)]="bank.accountNumber" class="form-control floating datetimepicker" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Branch</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="branch" [(ngModel)]="bank.branch"  class="form-control floating datetimepicker" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label class="control-label">Comment</label>
+        <div class="form-group form-focus">
+
+          <input type="text" name="account" [(ngModel)]="em.bank.comments" class="form-control floating" />
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="text-center m-t-20">
+    <button class="btn btn-primary btn-lg" type="submit">Add Admin</button>
+    <!-- <button class="btn btn-primary btn-lg" type="submit" (click)="addNewAdmin()" >Add Admin</button> -->
+  </div>
+
+</form>
+
+<div *ngIf="complete == true" class="card-box">
+  <div class="row">
+    <div class="col-md-12">
+      <p>profile</p>
+      <p>{{newAdmin.fname}}</p>
+
+      <button type="button" class="btn btn-primary" (click)="close()" >Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="error" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="margin: 158px auto;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Input Error: 101</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your account number {{bank.accountNumber}} should only contain numbers</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>

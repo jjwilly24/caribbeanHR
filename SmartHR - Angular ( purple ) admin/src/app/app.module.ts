@@ -111,6 +111,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmloginComponent } from './pages/emlogin/emlogin.component';
 
 import { NgxGalleryModule } from 'ngx-gallery';
+import { NewAdminComponent } from './admin/new-admin/new-admin.component';
 
 enableProdMode();
 
@@ -207,6 +208,7 @@ const routes: Routes = [
     { path: 'leave-type', component: SettingsleaveComponent }
   ]
   },
+  { path: 'admin/new', component: NewAdminComponent },
   { path: 'pages/login', component: LoginPageComponent },
   { path: 'pages/register', component: RegisterPageComponent },
   { path: 'pages/forgot-password', component: ForgetPageComponent },
@@ -314,7 +316,8 @@ const routes: Routes = [
     ManagedJobsComponent,
     AppliedJobsComponent,
     ProfileEditComponent,
-    EmloginComponent
+    EmloginComponent,
+    NewAdminComponent
     ],
   imports: [
     BrowserModule,
