@@ -6,316 +6,163 @@
   <h4 *ngIf="complete == true" class="page-title">New Admin Profile</h4>
 </div>
 </div>
-<form *ngIf="complete != true" #addForm="ngForm" (ngSubmit)="addNewAdmin(addForm)" novalidate>
-  <div class="card-box">
-    <h3 class="card-title">Basic Information</h3>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="profile-img-wrap">
-          <img class="inline-block" src="assets/img/user.jpg" alt="user">
-          <div class="fileupload btn btn-default">
-            <span class="btn-text">edit</span>
-            <input class="upload" type="file">
+
+  <form *ngIf="complete != true" #addForm="ngForm" novalidate>
+    <div class="card-box">
+      <h3 class="card-title">Basic Informations</h3>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="profile-img-wrap">
+            <img class="inline-block" src="assets/img/user.jpg" alt="user">
+            <div class="fileupload btn btn-default">
+              <span class="btn-text">edit</span>
+              <input class="upload" type="file">
+            </div>
           </div>
-        </div>
-        <div class="profile-basic">
-          <div class="row">
-            <div class="col-md-6">
-              <label class="control-label">First Name</label>
-              <div class="form-group form-focus">
-                <input type="text" name="fname" [(ngModel)]="em.fname" class="form-control floating" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label class="control-label">Last Name</label>
-              <div class="form-group form-focus">
-                <input type="text" name="lname" [(ngModel)]="em.lname" class="form-control floating" />
-              </div>
-            </div>
+          <div class="profile-basic">
             <div class="row">
               <div class="col-md-6">
-                <label class="control-label">TRN</label>
+                <label class="control-label">First Name</label>
                 <div class="form-group form-focus">
-                  <input type="text" name="trn" [(ngModel)]="em.trn" class="form-control floating" />
+                  <input type="text" name="fname" [(ngModel)]="em.fname" class="form-control floating" />
                 </div>
               </div>
               <div class="col-md-6">
-                <label class="control-label">NIS</label>
+                <label class="control-label">Last Name</label>
                 <div class="form-group form-focus">
-                  <input type="text" name="nis" [(ngModel)]="em.nis" class="form-control floating" />
+                  <input type="text" name="lname" [(ngModel)]="em.lname" class="form-control floating" />
                 </div>
               </div>
-            <div class="col-md-6">
-              <label class="control-label">Birth Date</label>
-              <div class="form-group form-focus">
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="control-label">TRN</label>
+                  <div class="form-group form-focus">
+                    <input type="text" name="trn" [(ngModel)]="em.trn" class="form-control floating" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label class="control-label">NIS</label>
+                  <div class="form-group form-focus">
+                    <input type="text" name="nis" [(ngModel)]="em.nis" class="form-control floating" />
+                  </div>
+                </div>
+              <div class="col-md-6">
+                <label class="control-label">Birth Date</label>
+                <div class="form-group form-focus">
 
-                <div class="cal-icon"><input name="dob" [(ngModel)]="date" class="form-control floating datetimepicker" type="text"></div>
+                  <div class="cal-icon"><input name="dob" [(ngModel)]="date" class="form-control floating datetimepicker" type="text"></div>
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <label class="control-label">Gendar</label>
-              <div class="form-group form-focus select-focus">
+              <div class="col-md-6">
+                <label class="control-label">Gendar</label>
+                <div class="form-group form-focus select-focus">
 
-                <select class="select form-control floating" name="gender" [(ngModel)]="em.gender">
-                  <option value="">Select Gendar</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
+                  <select class="select form-control floating" name="gender" [(ngModel)]="em.gender">
+                    <option value="">Select Gendar</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
-  <div class="card-box">
-    <h3 class="card-title">Contact Informations</h3>
-    <div class="row">
-      <div class="col-md-12">
-        <label class="control-label">Address</label>
-        <div class="form-group form-focus">
+    </div>
+    <div class="card-box">
+      <h3 class="card-title">Contact Informations</h3>
+      <div class="row">
+        <div class="col-md-12">
+          <label class="control-label">Address</label>
+          <div class="form-group form-focus">
 
-          <input [(ngModel)]="address.street" name="street" type="text" class="form-control floating" />
+            <input [(ngModel)]="address.street" name="street" type="text" class="form-control floating" />
+          </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">City</label>
-        <div class="form-group form-focus">
+        <div class="col-md-6">
+          <label class="control-label">City</label>
+          <div class="form-group form-focus">
 
-          <input [(ngModel)]="address.city" name="city" type="text" class="form-control floating" />
+            <input [(ngModel)]="address.city" name="city" type="text" class="form-control floating" />
+          </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Parish</label>
-        <div class="form-group form-focus">
+        <div class="col-md-6">
+          <label class="control-label">Parish</label>
+          <div class="form-group form-focus">
 
-          <select class="select form-control floating" name="parish" [(ngModel)]="address.parish">
-            <option value="">Select Type</option>
-            <option value="Hanover">Hanover</option>
-            <option value="Saint Elizabeth">Saint Elizabeth</option>
-            <option value="Saint James">Saint James</option>
-            <option value="Trelawny">Trelawny</option>
-            <option value="Westmoreland">Westmoreland</option>
-            <option value="Clarendon">Clarendon</option>
-            <option value="Manchester">Manchester</option>
-            <option value="Saint Ann">Saint Ann</option>
-            <option value="Saint Catherine">Saint Catherine</option>
-            <option value="Saint Mary">Saint Mary</option>
-            <option value="Kingston">Kingston</option>
-            <option value="Portland">Portland</option>
-            <option value="Saint Andrew">Saint Andrew</option>
-            <option value="Saint Thomas">Saint Thomas</option>
+            <select class="select form-control floating" name="parish" [(ngModel)]="address.parish">
+              <option value="">Select Type</option>
+              <option value="Hanover">Hanover</option>
+              <option value="Saint Elizabeth">Saint Elizabeth</option>
+              <option value="Saint James">Saint James</option>
+              <option value="Trelawny">Trelawny</option>
+              <option value="Westmoreland">Westmoreland</option>
+              <option value="Clarendon">Clarendon</option>
+              <option value="Manchester">Manchester</option>
+              <option value="Saint Ann">Saint Ann</option>
+              <option value="Saint Catherine">Saint Catherine</option>
+              <option value="Saint Mary">Saint Mary</option>
+              <option value="Kingston">Kingston</option>
+              <option value="Portland">Portland</option>
+              <option value="Saint Andrew">Saint Andrew</option>
+              <option value="Saint Thomas">Saint Thomas</option>
 
-          </select>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Country</label>
-        <div class="form-group form-focus">
+        <div class="col-md-6">
+          <label class="control-label">Country</label>
+          <div class="form-group form-focus">
 
-          <input type="text" [(ngModel)]="address.country" name="country" class="form-control floating" />
+            <input type="text" [(ngModel)]="address.country" name="country" class="form-control floating" />
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-6">
-        <label class="control-label">Gendar</label>
-        <div class="form-group form-focus select-focus">
+        <div class="col-md-6">
+          <label class="control-label">Gendar</label>
+          <div class="form-group form-focus select-focus">
 
-          <select class="select form-control floating" [(ngModel)]="em.maritalStatus" name="maritalStatus" name="marital">
-            <option value="">Select Status</option>
-            <option value="married">Married</option>
-            <option value="single">Single</option>
-            <option value="widowed">Widowed</option>
-            <option value="divorced">Divorced</option>
-            <option value="separated">Separated</option>
-          </select>
+            <select class="select form-control floating" [(ngModel)]="em.maritalStatus" name="maritalStatus" name="marital">
+              <option value="">Select Status</option>
+              <option value="married">Married</option>
+              <option value="single">Single</option>
+              <option value="widowed">Widowed</option>
+              <option value="divorced">Divorced</option>
+              <option value="separated">Separated</option>
+            </select>
+          </div>
         </div>
-      </div>
 
 
-      <div class="col-md-6">
-        <label class="control-label">Phone Number</label>
-        <div class="form-group form-focus">
+        <div class="col-md-6">
+          <label class="control-label">Phone Number</label>
+          <div class="form-group form-focus">
 
-          <input type="text" [(ngModel)]="em.phone" name="phone" class="form-control floating" />
+            <input type="text" [(ngModel)]="em.phone" name="phone" class="form-control floating" />
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="control-label">Email</label>
+          <div class="form-group form-focus">
+
+            <input type="email" [(ngModel)]="em.email" name="email" class="form-control floating" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="card-box">
-    <h3 class="card-title">Bank Information</h3>
-    <div class="row">
-      <div class="col-md-6">
-        <label class="control-label">Bank Name</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="bank" [(ngModel)]="bank.bankName" class="form-control floating" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Account Type</label>
-        <div class="form-group form-focus select-focus">
-
-          <select class="select form-control floating" name="accountNumber" [(ngModel)]="bank.accountType">
-            <option value="">Select Type</option>
-            <option value="savings">Savings</option>
-            <option value="checking">Checking</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Account Number</label>
-        <div class="form-group form-focus">
-
-          <input type="number" name="Accountnumber" [(ngModel)]="bank.accountNumber" class="form-control floating datetimepicker" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Branch</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="branch" [(ngModel)]="bank.branch"  class="form-control floating datetimepicker" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Comment</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="account" [(ngModel)]="bank.comments" class="form-control floating" />
-        </div>
-      </div>
+    <div class="text-center m-t-20">
+      <button class="btn btn-primary btn-lg" type="button" (click)="addNewAdmin()" >Add Admin</button>
     </div>
-  </div>
 
-  <div class="card-box">
-    <h3 class="card-title">Emergency Contact</h3>
-    <div class="row">
-
-      <div class="col-md-6">
-        <label class="control-label">Full Name</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="name" [(ngModel)]="econtact1.name" class="form-control floating" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Contact Number</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="econtactnumber" [(ngModel)]="econtact1.contact" class="form-control floating" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Relationship</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="econtactnumber" [(ngModel)]="econtact1.relationship" class="form-control floating" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Address</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="econtact1Ad" [(ngModel)]="eaddress.street" class="form-control floating datetimepicker" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">City</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="eaddresscity" [(ngModel)]="eaddress.city"  class="form-control floating datetimepicker" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Parish</label>
-        <div class="form-group form-focus select-focus">
-
-          <select class="select form-control floating" name="ecparish" [(ngModel)]="eaddress.parish">
-            <option value="">Select Type</option>
-            <option value="Hanover">Hanover</option>
-            <option value="Saint Elizabeth">Saint Elizabeth</option>
-            <option value="Saint James">Saint James</option>
-            <option value="Trelawny">Trelawny</option>
-            <option value="Westmoreland">Westmoreland</option>
-            <option value="Clarendon">Clarendon</option>
-            <option value="Manchester">Manchester</option>
-            <option value="Saint Ann">Saint Ann</option>
-            <option value="Saint Catherine">Saint Catherine</option>
-            <option value="Saint Mary">Saint Mary</option>
-            <option value="Kingston">Kingston</option>
-            <option value="Portland">Portland</option>
-            <option value="Saint Andrew">Saint Andrew</option>
-            <option value="Saint Thomas">Saint Thomas</option>
-
-          </select>
-        </div>
-      </div>
-
-
-      <div class="col-md-6">
-        <label class="control-label">Country</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="emcountry" [(ngModel)]="eaddress.country" class="form-control floating" />
-        </div>
-      </div>
-    </div>
-    <!-- <div class="row">
-      <div class="col-md-6">
-        <label class="control-label">Bank Name</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="bank" [(ngModel)]="bank.bankName" class="form-control floating" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Account Type</label>
-        <div class="form-group form-focus select-focus">
-
-          <select class="select form-control floating" name="accountNumber" [(ngModel)]="bank.accountType">
-            <option value="">Select Type</option>
-            <option value="savings">Savings</option>
-            <option value="checking">Checking</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Account Number</label>
-        <div class="form-group form-focus">
-
-          <input type="number" name="Accountnumber" [(ngModel)]="bank.accountNumber" class="form-control floating datetimepicker" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Branch</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="branch" [(ngModel)]="bank.branch"  class="form-control floating datetimepicker" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label class="control-label">Comment</label>
-        <div class="form-group form-focus">
-
-          <input type="text" name="account" [(ngModel)]="em.bank.comments" class="form-control floating" />
-        </div>
-      </div>
-    </div> -->
-  </div>
-
-  <div class="text-center m-t-20">
-    <button class="btn btn-primary btn-lg" type="submit">Add Admin</button>
-    <!-- <button class="btn btn-primary btn-lg" type="submit" (click)="addNewAdmin()" >Add Admin</button> -->
-  </div>
-
-</form>
+  </form>
 
 <div *ngIf="complete == true" class="card-box">
   <div class="row">
     <div class="col-md-12">
-      <p>{{newAdmin.fname}}</p>
+      <p>{{em.fname}}</p>
 
       <div class="card-box">
         <div class="row">
@@ -330,8 +177,8 @@
                 <div class="row">
                   <div class="col-md-5">
                     <div class="profile-info-left">
-                      <h3 class="user-name m-t-0 m-b-0">{{newAdmin.fname}} {{newAdmin.lname}}</h3>
-                      <small class="text-muted">{{newAdmin.gender}}</small>
+                      <h3 class="user-name m-t-0 m-b-0">{{em.fname}} {{em.lname}}</h3>
+                      <small class="text-muted">{{em.gender}}</small>
 
                     </div>
                   </div>
@@ -339,176 +186,36 @@
                     <ul class="personal-info">
                       <li>
                         <span class="title">Phone:</span>
-                        <span class="text"><a href="javascript:">{{newAdmin.phone}}</a></span>
+                        <span class="text"><a href="javascript:">{{em.phone}}</a></span>
                       </li>
                       <li>
                         <span class="title">Email:</span>
-                        <span class="text"><a href="javascript:">{{newAdmin.email }}</a></span>
+                        <span class="text"><a href="javascript:">{{em.email }}</a></span>
                       </li>
                       <li>
                         <span class="title">Birthday:</span>
-                        <span class="text">{{newAdmin.dob | date: 'dd/MM/yyyy'}}</span>
+                        <span class="text">{{em.dob | date: 'dd/MM/yyyy'}}</span>
                       </li>
                       <li>
                         <span class="title">Address:</span>
-                        <span class="text">{{newAdmin.address.street}}, {{newAdmin.address.city}}, {{newAdmin.address.parish}}</span>
+                        <span class="text">{{address.street}}, {{address.city}}, {{address.parish}}</span>
                       </li>
                       <li>
                         <span class="title">Gender:</span>
-                        <span class="text">{{newAdmin.gender}}</span>
+                        <span class="text">{{em.gender}}</span>
                       </li>
                       <li>
                         <span class="title">TRN:</span>
-                        <span class="text">{{newAdmin.trn}}</span>
+                        <span class="text">{{em.trn}}</span>
                       </li>
                       <li>
                         <span class="title">NIS:</span>
-                        <span class="text">{{newAdmin.nis}} </span>
+                        <span class="text">{{em.nis}} </span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card-box m-b-0">
-            <h3 class="card-title">Bank Details</h3>
-
-            <ul class="personal-info">
-              <li>
-                <span class="title">Account # :</span>
-                <span class="text">{{newAdmin.bank.accountNumber}}</span>
-              </li>
-              <li>
-                <span class="title">Bank Name :</span>
-                <span class="text">{{newAdmin.bank.bankName}}</span>
-              </li>
-              <li>
-                <span class="title">Branch :</span>
-                <span class="text">{{newAdmin.bank.branch}}</span>
-              </li>
-              <li>
-                <span class="title">type :</span>
-                <span class="text">{{newAdmin.bank.accountType}}</span>
-              </li>
-            </ul>
-            <!-- <div class="skills">
-              <span>IOS</span>
-              <span>Android</span>
-              <span>Html</span>
-              <span>CSS</span>
-              <span>Codignitor</span>
-              <span>Php</span>
-              <span>Javascript</span>
-              <span>Wordpress</span>
-              <span>Jquery</span>
-            </div> -->
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="card-box">
-            <h3 class="card-title">Emergency Contact</h3>
-            <div class="experience-box">
-              <ul class="personal-info" *ngIf="newAdmin.emergencyContact.length != 0">
-                <li>
-                  <span class="title">Name:</span>
-                  <span class="text">
-                    {{newAdmin.emergencyContact[0].name}},
-                  </span>
-                </li>
-                <li>
-                  <span class="title">Relationship:</span>
-                  <span class="text">
-                    {{newAdmin.emergencyContact[0].relationship}},
-                  </span>
-                </li>
-                <li>
-                  <span class="title">Contact:</span>
-                  <span class="text">
-                    {{newAdmin.emergencyContact[0].contact}},
-                  </span>
-                </li>
-                <li>
-                  <span class="title">Address:</span>
-                  <span class="text">
-                    {{newAdmin.emergencyContact[0].address.street}},
-                    {{newAdmin.emergencyContact[0].address.city}},
-                    {{newAdmin.emergencyContact[0].address.parish}},
-                    {{newAdmin.emergencyContact[0].address.country}}
-                  </span>
-                </li>
-
-              </ul>
-              <!-- <ul class="experience-list">
-                <li>
-                  <div class="experience-user">
-                    <div class="before-circle"></div>
-                  </div>
-                  <div class="experience-content">
-                    <div class="timeline-content">
-                      <a href="javascript:" class="name">International College of Arts and Science (UG)</a>
-                      <div>Bsc Computer Science</div>
-                      <span class="time">2000 - 2003</span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="experience-user">
-                    <div class="before-circle"></div>
-                  </div>
-                  <div class="experience-content">
-                    <div class="timeline-content">
-                      <a href="javascript:" class="name">International College of Arts and Science (PG)</a>
-                      <div>Msc Computer Science</div>
-                      <span class="time">2000 - 2003</span>
-                    </div>
-                  </div>
-                </li>
-              </ul> -->
-            </div>
-          </div>
-          <div class="card-box m-b-0">
-            <h3 class="card-title">Uploads</h3>
-            <div class="experience-box">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Link</th>
-                    <th scope="col">Document Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let image of doc">
-                    <th scope="row"><a href="{{image.url}}" >download</a></th>
-                    <td >{{image.type}}</td>
-                  </tr>
-
-                </tbody>
-              </table>
-
-              <div class="row" >
-
-                <div style="display: flex;" >
-                  <div style="width: 250px; padding: 0 54px;" *ngFor="let image of images">
-                    <p *ngIf="image.docType != 'docx' || image.docType != 'doc'" style="text-align: center;">{{image.type}}</p>
-                    <img (click)="onImageView($event)" *ngIf="image.docType != 'docx' || image.docType != 'doc'" src="{{image.url}}" width="100%">
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="blacktop" *ngIf="imgZoom == true">
-            <img id="zoomImg" (click)="onImageView('')" *ngIf="imgZoomUrl != ''" src="{{imgZoomUrl}}" max-width="70%" max-height="70%">
-            <div class="imgRotateControl">
-              <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('l')">Rotate Left</button>
-              <button type="button" class="btn btn-primary btn-md" (click)="rotateImg('r')">Rotate Right</button>
             </div>
           </div>
         </div>

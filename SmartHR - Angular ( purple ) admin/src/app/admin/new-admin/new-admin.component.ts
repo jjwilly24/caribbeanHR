@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Address } from 'src/app/Models/Address';
-import { Bank } from 'src/app/Models/Bank';
-import { Econtact } from 'src/app/Models/Econtact';
 import { Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { Admin } from 'src/app/Models/Admin';
 
 @Component({
   selector: 'app-new-admin',
@@ -13,29 +13,27 @@ import {NgForm} from '@angular/forms';
 })
 export class NewAdminComponent implements OnInit {
 
-  em: any = {};
-  bank: Bank = {} as any;
+  em: Admin = {} as any;
+  test: any
   address: Address = {} as any;
-  eaddress: Address = {} as any;
-  econtact1: Econtact = {} as any;
   date: any;
   complete: boolean = false;
-  newAdmin: any = {};
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService, private router: Router, public datepipe: DatePipe) { }
 
   ngOnInit() {
 
   }
 
-  addNewAdmin(addForm: NgForm) {
-    console.log('1:',this.em);
-    console.log('2:',this.address.street);
+  addNewAdmin() {
+    this.em.address = this.address;
+    console.log('foo',this.em);
 
-    // api request sucess return admin object, this.newAdmin = admin obj
-    this.newAdmin.fname = this.em.fname;
+    // this.api.createAdmin(this.em).subscribe(next => {
+    //   console.log('api response',next);
+    // });
+
     this.complete = true;
-    addForm.reset();
   }
 
   close() {
