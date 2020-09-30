@@ -181,7 +181,6 @@ updateProfile() {
     $("#error").modal("show");
   }
 
-
 }
 
 onImageView(event) {

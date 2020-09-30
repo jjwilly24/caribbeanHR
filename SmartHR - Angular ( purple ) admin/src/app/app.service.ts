@@ -52,6 +52,53 @@ export class AppService {
      }
   ];
 
+  public allAdmin = [
+    {
+    'id':'23124',
+    'dob':'03/05/2007',
+    'fname':'toast',
+    'mname':'roast',
+    'lname':'boast',
+    'trn':'123qasdwa',
+    'nis':'vcsd1234',
+    'address':{
+      'street':'testdr',
+      'district':'destruct',
+      'city':'tegobai',
+      'parish':'san jame',
+      'country':'Jumeker'
+    },
+    'contact':'122eaqs',
+    'type':'trope',
+    'email':'a@b.c',
+    'phone':'23124',
+    'gender':'mule',
+    'permissions':[]
+    },
+    {
+    'id':'342345234',
+    'dob':'05/10/2008',
+    'fname':'test',
+    'mname':'pest',
+    'lname':'best',
+    'trn':'ycyhc6685',
+    'nis':'99976if',
+    'address':{
+      'street':'testdr',
+      'district':'destruct',
+      'city':'kanstan',
+      'parish':'san anje',
+      'country':'Jumeker'
+    },
+    'contact':'555555',
+    'type':'tripe',
+    'email':'d@e.f',
+    'phone':'467fuf',
+    'gender':'shemule',
+    'permissions':[]
+    }
+  ]
+
   public employee_modules = [
     {
       'module': 'Holidays',

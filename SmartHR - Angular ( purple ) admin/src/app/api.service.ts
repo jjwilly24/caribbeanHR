@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Client } from './Models/Client';
+import { Admin } from './Models/Admin';
 
 @Injectable({
   providedIn: 'root'
@@ -289,7 +290,66 @@ MoveTo(id, direction, client) {
 }
 
 
+getAllAdmin(id) {
+  let token = localStorage.getItem('token');
 
+  const httpOptionsSecure = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=utf8',
+      'Authorization': `Bearer ${token}`
+    })
+  };
+
+  return this.http.get(this.server+`api/admin/getAdmin`, httpOptionsSecure).pipe(
+    map((response: any) => {
+      if (response) {
+        return response;
+      }
+    })
+  );
+}
+
+createAdmin(admin: Admin){
+
+  let token = localStorage.getItem('token');
+
+  const httpOptionsSecure = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=utf8',
+      'Authorization': `Bearer ${token}`
+    })
+  };
+
+  return this.http.post(this.server+"api/admin/CreateAdmin", admin, httpOptionsSecure).pipe(
+    map((response: any) => {
+      if (response) {
+        return response;
+      }
+    })
+  )
+
+}
+
+updateAdmin(admin: Admin){
+
+  let token = localStorage.getItem('token');
+
+  const httpOptionsSecure = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=utf8',
+      'Authorization': `Bearer ${token}`
+    })
+  };
+
+  return this.http.post(this.server+"api/admin/UpdateAdmin", admin, httpOptionsSecure).pipe(
+    map((response: any) => {
+      if (response) {
+        return response;
+      }
+    })
+  )
+
+}
 
 
 

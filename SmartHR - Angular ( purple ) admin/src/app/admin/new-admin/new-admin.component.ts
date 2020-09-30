@@ -34,6 +34,8 @@ export class NewAdminComponent implements OnInit {
     // });
 
     this.complete = true;
+
+    this.router.navigate(['admin/all']);
   }
 
   close() {

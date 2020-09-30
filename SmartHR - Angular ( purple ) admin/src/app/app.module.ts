@@ -112,6 +112,8 @@ import { EmloginComponent } from './pages/emlogin/emlogin.component';
 
 import { NgxGalleryModule } from 'ngx-gallery';
 import { NewAdminComponent } from './admin/new-admin/new-admin.component';
+import { AllAdminComponent } from './admin/all-admin/all-admin.component';
+import { AdminDetailsComponent } from './admin/admin-details/admin-details.component';
 
 enableProdMode();
 
@@ -208,7 +210,9 @@ const routes: Routes = [
     { path: 'leave-type', component: SettingsleaveComponent }
   ]
   },
+  { path: 'admin/all', component: AllAdminComponent },
   { path: 'admin/new', component: NewAdminComponent },
+  { path: 'admin/edit', component: AdminDetailsComponent },
   { path: 'pages/login', component: LoginPageComponent },
   { path: 'pages/register', component: RegisterPageComponent },
   { path: 'pages/forgot-password', component: ForgetPageComponent },
@@ -317,7 +321,9 @@ const routes: Routes = [
     AppliedJobsComponent,
     ProfileEditComponent,
     EmloginComponent,
-    NewAdminComponent
+    NewAdminComponent,
+    AllAdminComponent,
+    AdminDetailsComponent
     ],
   imports: [
     BrowserModule,

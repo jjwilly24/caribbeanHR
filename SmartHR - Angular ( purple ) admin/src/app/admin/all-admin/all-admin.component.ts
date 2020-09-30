@@ -28,11 +28,22 @@ export class AllAdminComponent implements OnInit {
   public createAdmin:any = {};
   public addAdmin:any = {};
 
+  public modules = [];
+
   public columns:Array<any> = [
-    {title: 'Name', name: 'name', sort: true},
-    {title: 'Admin ID', name: 'id', sort: true},
+    {title: 'FName', name: 'fname', sort: true},
+    {title: 'MName', name: 'mname', sort: true},
+    {title: 'LName', name: 'lname', sort: true},
+    {title: 'ID', name: 'id', sort: true},
     {title: 'Email', name: 'email', sort: true},
-    {title: 'Action', name: 'action', sort: true}
+    {title: 'Date', name: 'dob', sort: true},
+    {title: 'Trn', name: 'trn', sort: true},
+    {title: 'Nis', name: 'nis', sort: true},
+    {title: 'Contact', name: 'contact', sort: true},
+    {title: 'Type', name: 'type', sort: true},
+    {title: 'Gender', name: 'gender', sort: true},
+    {title: 'Phone', name: 'phone', sort: true},
+    {title: 'Address', name: 'address', sort: true},
   ];
 
   public allAdmin:boolean = true;
@@ -45,9 +56,14 @@ export class AllAdminComponent implements OnInit {
   constructor(private api: ApiService, private router: Router, private appService:AppService) {
     this.rows = appService.allAdmin;
     this.srch = [...this.rows];
+    this.modules = appService.employee_modules;
   }
 
   ngOnInit() {
+
+    $('.floating').on('focus blur', function (e) {
+      $(this).parents('.form-focus').toggleClass('focused', (e.type === 'focus' || this.value.length > 0));
+    }).trigger('blur');
 
   }
 
@@ -55,36 +71,44 @@ export class AllAdminComponent implements OnInit {
   public vals = [];
 
   addReset(){
-    let randomnumber = Math.floor(Math.random() * 99);
-    //this.createEmp = {'employeeID':randomnumber};
-    //console.log(randomnumber)
-    this.addAdmin = {
-      firstName: '',
-      lastName:  '',
-      id: randomnumber,
-      email: '',
-
-    }
-    $('#add_admin').modal('show');
+    this.router.navigate(['admin/new']);
+    // let randomnumber = Math.floor(Math.random() * 99);
+    // //this.createEmp = {'employeeID':randomnumber};
+    // //console.log(randomnumber)
+    // this.addAdmin = {
+    //   fname: '',
+    //   mname:  '',
+    //   lname:  '',
+    //   id: randomnumber,
+    //   email: '',
+    //   phone: '',
+    //   gender: '',
+    //   type: '',
+    //   trn: '',
+    //   nis: '',
+    //   dob: '',
+    //   address: '',
+    // }
+    // $('#add_admin').modal('show');
   }
 
-  // addSubmit(f)
-  // {
-  //   if (f.invalid === true)
-  //     this.addEmployeeValidation = true;
-  //   else {
-  //     this.addEmployeeValidation = false;
-  //   //console.log(f.form.value);
-  //   this.rows.unshift(f.form.value);
-  //   this.srch.unshift(f.form.value);
-  //   this.rows = this.rows;
-  //   $('#add_employee').modal('hide');
-  //   }
-  // }
+  addSubmit(f)
+  {
+    if (f.invalid === true)
+      this.addAdminValidation = true;
+    else {
+      this.addAdminValidation = false;
+    //console.log(f.form.value);
+    this.rows.unshift(f.form.value);
+    this.srch.unshift(f.form.value);
+    this.rows = this.rows;
+    $('#add_admin').modal('hide');
+    }
+  }
   //
-  // onEdit(item){
-  //   this.router.navigate(['employees/all-employees/edit'], { queryParams: { 'id': item.employeeID } });
-  // }
+  onEdit(item){
+    this.router.navigate(['admin/edit'], { queryParams: { 'id': item.id } });
+  }
 
   onDelete(id){
     //console.log("="+id+"=");
@@ -130,6 +154,10 @@ export class AllAdminComponent implements OnInit {
     //console.log(temp);
     this.rows.push(...temp);
     //console.log(this.rows);
+  }
+
+  searchContact(val) {
+    console.log(val);
   }
 
 }
