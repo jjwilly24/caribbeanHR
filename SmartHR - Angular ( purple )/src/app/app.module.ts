@@ -111,6 +111,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmloginComponent } from './pages/emlogin/emlogin.component';
 
 import { NgxGalleryModule } from 'ngx-gallery';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { CompareValidatorDirective } from './shared/compare-validator.directive';
+
 
 enableProdMode();
 
@@ -188,12 +191,12 @@ const routes: Routes = [
   { path: 'inbox/view', component: MessageviewComponent },
   { path: 'users', component: UsersComponent },
   { path: 'assets', component: AssetsmainComponent },
-  { path: 'reports', component: ReportsmainComponent ,children: [
+  { path: 'reports', component: ReportsmainComponent , children: [
     { path: '', redirectTo: 'expense-reports', pathMatch: 'full' },
     { path: 'expense-reports', component: ReportsexpenseComponent },
     { path: 'invoice-reports', component: ReportsinvoiceComponent }
   ]},
-  { path: 'settings', component: SettingsmainComponent ,children: [
+  { path: 'settings', component: SettingsmainComponent , children: [
     { path: '', redirectTo: 'company-settings', pathMatch: 'full' },
     { path: 'company-settings', component: SettingscompanyComponent },
     { path: 'localization', component: SettingslocalizationComponent },
@@ -210,6 +213,7 @@ const routes: Routes = [
   { path: 'pages/login', component: LoginPageComponent },
   { path: 'pages/register', component: RegisterPageComponent },
   { path: 'pages/forgot-password', component: ForgetPageComponent },
+  { path: 'pages/reset-password', component: ResetPasswordComponent},
   { path: 'pages/employee', component: EmloginComponent},
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuardService] },
   { path: 'profile/edit', component: ProfileEditComponent },
@@ -313,7 +317,9 @@ const routes: Routes = [
     ManagedJobsComponent,
     AppliedJobsComponent,
     ProfileEditComponent,
-    EmloginComponent
+    EmloginComponent,
+    ResetPasswordComponent,
+    CompareValidatorDirective,
     ],
   imports: [
     BrowserModule,
@@ -332,6 +338,7 @@ const routes: Routes = [
     HttpClientModule,
     TooltipModule.forRoot(),
     RouterModule.forRoot(routes),
+    FormsModule
 
   ],
   providers: [

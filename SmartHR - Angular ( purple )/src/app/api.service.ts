@@ -9,7 +9,7 @@ import { Client } from './Models/Client';
 export class ApiService {
 
 server = "https://api.caribbeanhrsolutions.com/";
-
+private url = 'https://jsonplaceholder.typicode.com/users';
 constructor(private http: HttpClient) { }
 
 
@@ -22,6 +22,17 @@ emlogin(email, password) {
     })
   )
 }
+
+getUserEmail(email) {
+  return this.http.get<any[]>(`${this.url}?email=${email}`).pipe(
+    map((response: any) => {
+      if (response) {
+        return response;
+      }
+    })
+  )
+}
+
 
 createClient(client: Client){
 
