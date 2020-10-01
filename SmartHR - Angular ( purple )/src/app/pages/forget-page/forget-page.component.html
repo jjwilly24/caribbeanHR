@@ -24,47 +24,24 @@
 </div>
 
 <!-- The Modal -->
-<div class="modal" id="failModal">
+<div class="modal" id="openModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Opps, Something went wrong</h4>
+        <h4 *ngIf="successH" class="modal-title">Success</h4>
+        <h4 *ngIf="failureH" class="modal-title">Opps, Something went wrong</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
-        Email ivalid or email doesn't exist, please check email and try again.
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-<button id="openFailModal" [style.display]="'none'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#failModal"></button>
-
-<!-- The Modal -->
-<div class="modal" id="successModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Success</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
+      <div *ngIf="successB" class="modal-body">
         A reset link have being successfully send to your email, please check your email
       </div>
-
+      <div *ngIf="failureB" class="modal-body">
+        Email ivalid or email doesn't exist, please check email and try again.
+      </div>
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -73,4 +50,5 @@
     </div>
   </div>
 </div>
-<button id="openSuccessModal"[style.display]="'none'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal"></button>
+<button id="openUpModal" [style.display]="'none'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#openModal"></button>
+

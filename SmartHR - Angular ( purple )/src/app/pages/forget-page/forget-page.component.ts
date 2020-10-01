@@ -12,7 +12,7 @@ export class ForgetPageComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) { }
 
   data: any = {};
- 
+  successH; successB; failureH; failureB;
 
   ngOnInit() {
 
@@ -24,9 +24,17 @@ export class ForgetPageComponent implements OnInit {
         if (next.length > 0) {
          // send code to email;
         // this.data.email
-        document.getElementById('openSuccessModal').click();
+        this.successH = true;
+        this.successB = true;
+        this.failureH = false;
+        this.failureB = false;
+        document.getElementById('openUpModal').click();
         } else {
-          document.getElementById('openFailModal').click();
+          this.successH = false;
+          this.successB = false;
+          this.failureH = true;
+          this.failureB = true;
+          document.getElementById('openUpModal').click();
         }
 
       }
