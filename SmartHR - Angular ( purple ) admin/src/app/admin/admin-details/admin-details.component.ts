@@ -89,10 +89,8 @@ export class AdminDetailsComponent implements OnInit {
       {
         var id = params.id;
         var arr = this.rows.find(function(item, i){
-
           return item.id == id;
         });
-
         if(!arr)
         {
           this.router.navigate(['admin/all']);
@@ -101,7 +99,7 @@ export class AdminDetailsComponent implements OnInit {
         {
         this.uptAdmin.push(arr);
         this.uptAdmin = this.uptAdmin[0];
-        //console.log(this.uptEmp);
+        console.log('buur',this.uptAdmin);
         }
       }
       else{
@@ -122,6 +120,7 @@ export class AdminDetailsComponent implements OnInit {
     var id = f.form.value.id;
     console.log(id);
     var index = this.rows.findIndex(function(item, i){
+
       return item.id === id
     });
 

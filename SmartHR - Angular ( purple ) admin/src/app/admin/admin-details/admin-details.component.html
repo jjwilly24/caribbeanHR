@@ -78,10 +78,43 @@
                   <div class="col-sm-6">
                     <div class="form-group" [class.has-error]="phone.invalid && phone.touched" [class.has-success]="phone.valid">
                       <label class="control-label">Phone <span class="text-danger">*</span></label>
-                      <input class="form-control unit-cost" type="text" [(ngModel)]="uptEmp.contact" name="contact" #contact="ngModel" pattern="(\d{10}|\d{12})" required>
+                      <input class="form-control unit-cost" type="text" [(ngModel)]="uptAdmin.contact" name="contact" #contact="ngModel" pattern="(\d{10}|\d{12})" required>
                       <span class="help-block" *ngIf="phone.errors && phone.touched">
                         Phone Number is invalid
                       </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">street <span class="text-danger m-l-5">*</span></label>
+                      <input type="text" class="form-control" readonly [(ngModel)]="uptAdmin.address.street" name="street" #street="ngModel" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">district <span class="text-danger m-l-5">*</span></label>
+                      <input type="text" class="form-control" readonly [(ngModel)]="uptAdmin.address.district" name="district" #district="ngModel" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">city <span class="text-danger m-l-5">*</span></label>
+                      <input type="text" class="form-control" readonly [(ngModel)]="uptAdmin.address.city" name="city" #city="ngModel" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+
+                    <div class="form-group">
+                      <label class="control-label">parish <span class="text-danger m-l-5">*</span></label>
+                      <input type="text" class="form-control" readonly [(ngModel)]="uptAdmin.address.parish" name="parish" #parish="ngModel" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">country <span class="text-danger m-l-5">*</span></label>
+                      <input type="text" class="form-control" readonly [(ngModel)]="uptAdmin.address.country" name="country" #country="ngModel" required>
                     </div>
                   </div>
                 </div>
