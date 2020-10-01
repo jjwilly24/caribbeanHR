@@ -27,15 +27,17 @@ export class NewAdminComponent implements OnInit {
 
   addNewAdmin() {
     this.em.address = this.address;
-    console.log('foo',this.em);
 
-    // this.api.createAdmin(this.em).subscribe(next => {
-    //   console.log('api response',next);
-    // });
+    this.api.createAdmin(this.em).subscribe(next => {
+      console.log('api response2',next);
 
-    this.complete = true;
+      this.complete = true;
+      this.router.navigate(['admin/all']);
+    });
 
-    this.router.navigate(['admin/all']);
+    // this.complete = true;
+    // this.router.navigate(['admin/all']);
+
   }
 
   close() {

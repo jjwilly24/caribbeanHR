@@ -89,6 +89,7 @@ export class AdminDetailsComponent implements OnInit {
       {
         var id = params.id;
         var arr = this.rows.find(function(item, i){
+
           return item.id == id;
         });
 
@@ -113,13 +114,13 @@ export class AdminDetailsComponent implements OnInit {
 
   updateSubmit(f)
   {
-    //console.log(f.form.value);
+    console.log(f.form.value);
     if (f.invalid === true)
       this.uptAdminValidation = true;
     else {
       this.uptAdminValidation = false;
     var id = f.form.value.id;
-    //console.log(id);
+    console.log(id);
     var index = this.rows.findIndex(function(item, i){
       return item.id === id
     });

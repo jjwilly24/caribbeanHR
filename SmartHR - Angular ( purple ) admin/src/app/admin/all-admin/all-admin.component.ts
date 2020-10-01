@@ -126,7 +126,7 @@ export class AllAdminComponent implements OnInit {
   }
 
   searchID(val) {
-    //console.log(val);
+    console.log(val);
     val = val.toString();
     //console.log(this.srch);
     this.rows.splice(0, this.rows.length);
@@ -142,7 +142,7 @@ export class AllAdminComponent implements OnInit {
   }
 
   searchFname(val) {
-    //console.log(val);
+    console.log(val);
     //console.log(this.srch);
     this.rows.splice(0, this.rows.length);
     //console.log(this.rows);
@@ -158,6 +158,17 @@ export class AllAdminComponent implements OnInit {
 
   searchContact(val) {
     console.log(val);
+    //console.log(this.srch);
+    this.rows.splice(0, this.rows.length);
+    //console.log(this.rows);
+    let temp = this.srch.filter(function(d) {
+      //console.log(d.userName);
+      val = val.toLowerCase();
+      return d.contact.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    //console.log(temp);
+    this.rows.push(...temp);
+    //console.log(this.rows);
   }
 
 }
